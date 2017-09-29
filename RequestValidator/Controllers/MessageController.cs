@@ -34,13 +34,13 @@ namespace RequestValidator.Controllers
             }
             
             Console.WriteLine(twilioSignature);
-
+        
             var parameters = fc.Keys.ToDictionary<string, string, string>(key => key, key => fc[key]);
-
+        
             var hashedParameters = GetHashedParameters(url, parameters);
             Console.WriteLine(hashedParameters);
             Console.WriteLine(validator.Validate(url, parameters, twilioSignature));
-
+        
             return Content("blah");
         }
 
